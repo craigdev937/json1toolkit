@@ -1,0 +1,37 @@
+{
+  "name": "json1toolkit",
+  "version": "1.0.0",
+  "description": "Initial setup of the project.  Created with React Router, JSON Server, React, and Redux-Toolkit.",
+  "main": "index.jsx",
+  "scripts": {
+    "server": "npx json-server --watch data/db.json --port 5000",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indigomx9/json1toolkit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/indigomx9/json1toolkit/issues"
+  },
+  "homepage": "https://github.com/indigomx9/json1toolkit#readme",
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.3.2",
+    "json-server": "^0.17.0",
+    "vite": "^2.9.13"
+  }
+}
+
+
