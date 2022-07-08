@@ -2,17 +2,12 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { API } from "../global/FetchAPI";
 
-export const TaskList = () => {
+export const TaskCard = () => {
     const dispatch = useDispatch();
-    const { loading, error, tasks } = 
-        useSelector((state) => state.tasks);
-    
+    const { tasks } = useSelector((state) => state.tasks);
     React.useEffect(() => {
         dispatch(API.fetchAll());
     }, [dispatch]);
-
-    if (loading) return <h1>Loading...</h1>;
-    if (error) return <h1>{error.message}</h1>
 
     return (
         <React.Fragment>
