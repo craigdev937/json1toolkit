@@ -1,23 +1,18 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { API } from "../global/FetchAPI";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-export const TaskCard = () => {
+export const TaskCard = ({ task }) => {
     const dispatch = useDispatch();
-    const { tasks } = useSelector((state) => state.tasks);
-    React.useEffect(() => {
-        dispatch(API.fetchAll());
-    }, [dispatch]);
+    const navigate = useNavigate();
 
     return (
-        <React.Fragment>
-            {tasks.map((task) => (
-                <main key={task.id}>
-                    <p>{task.title}</p>
-                    <p>{task.description}</p>
-                </main>
-            ))}
-        </React.Fragment>
+        <main className="bg-zinc-800 rounded-md text-white p-4">
+            <header className="flex justify-between">
+                <h3>{task.title}</h3>
+                
+            </header>
+        </main>
     );
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { API } from "../global/FetchAPI";
+import { TaskCard } from "../components/TaskCard";
 
 export const TaskList = () => {
     const dispatch = useDispatch();
@@ -15,14 +16,15 @@ export const TaskList = () => {
     if (error) return <h1>{error.message}</h1>
 
     return (
-        <React.Fragment>
-            {tasks.map((task) => (
-                <main key={task.id}>
-                    <p>{task.title}</p>
-                    <p>{task.description}</p>
-                </main>
+        <main className="grid 
+                grid-cols-1 
+                md:grid-cols-2 
+                lg:grid-cols-4 
+                gap-3"
+            >{tasks.map((task) => (
+                <TaskCard key={task.id} task={task} />
             ))}
-        </React.Fragment>
+        </main>
     );
 };
 
