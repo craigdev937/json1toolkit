@@ -13,6 +13,7 @@ export const TaskCard = ({ task }) => {
 
     const handleDelete = (id) => {
         dispatch(API.Delete(id));
+        navigate("/");
     };
 
     return (

@@ -11,6 +11,14 @@ class FetchClass {
         return [...tasks];
     });
 
+    GetOne = createAsyncThunk("task/GetOne", 
+    async (id) => {
+        const res = await fetch(`${URL}/${id}`);
+        if (!res.ok) throw new Error(res.statusText);
+        const task = await res.json();
+        return task;
+    });
+
     Create = createAsyncThunk("task/Create", 
     async (payload) => {
         const res = await fetch(URL, {
@@ -42,8 +50,8 @@ class FetchClass {
     });
 
     Delete = createAsyncThunk("task/Delete", 
-    async (payload) => {
-        const res = await fetch(`${URL}/${payload.id}`, {
+    async (id) => {
+        const res = await fetch(`${URL}/${id}`, {
             method: "DELETE"
         });
         if (!res.ok) throw new Error(res.statusText);

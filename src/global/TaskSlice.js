@@ -23,6 +23,17 @@ const TaskSlice = createSlice({
             state.loading = false,
             state.tasks = [...action.payload]
         },
+        [API.GetOne.rejected]: (state, action) => {
+            state.loading = false,
+            state.error = action.payload
+        },
+        [API.GetOne.pending]: (state) => {
+            state.loading = true
+        },
+        [API.GetOne.fulfilled]: (state, action) => {
+            state.loading = false,
+            state.task = action.payload.id
+        },
         [API.Create.rejected]: (state, action) => {
             state.loading = false,
             state.error = action.payload
