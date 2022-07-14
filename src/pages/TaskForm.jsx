@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { API } from "../global/FetchAPI";
 
 export const TaskForm = () => {
@@ -35,9 +35,9 @@ export const TaskForm = () => {
     };
 
     React.useEffect(() => {
-        const loadTask = async () => {
+        const loadTask = () => {
             try {
-                const res = await API.GetOne(params.id);
+                const res = API.GetOne(params.id);
                 setTask(res);
             } catch (error) {
                 console.log(error);
